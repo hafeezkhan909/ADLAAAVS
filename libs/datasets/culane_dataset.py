@@ -62,9 +62,10 @@ class CulaneDataset(CustomDataset):
         self.pipeline = Compose(pipeline)
         self.result_dir = "tmp"
         self.list_path = data_list
-        self.test_categories_dir = str(Path(data_root).joinpath("list/test_split/"))
+        self.test_categories_dir = str(Path(data_root).joinpath("list/test_split/")) # update test categories path 
         self.y_step = y_step
 
+    # Update parsing the data 
     def parse_datalist(self, data_list):
         """
         Read image data list.

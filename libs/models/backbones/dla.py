@@ -21,8 +21,8 @@ BN_MOMENTUM = 0.1
 logger = logging.getLogger(__name__)
 
 
-def get_model_url(data='imagenet', name='dla34', hash='ba72cf86'):
-    return join('http://dl.yf.io/dla/models', data, '{}-{}.pth'.format(name, hash))
+# def get_model_url(data='imagenet', name='dla34', hash='ba72cf86'):
+#     return join('http://dl.yf.io/dla/models', data, '{}-{}.pth'.format(name, hash))
 
 
 def conv3x3(in_planes, out_planes, stride=1):
@@ -391,10 +391,10 @@ class DLA(nn.Module):
         # fc = self.fc
         if name.endswith('.pth'):
             model_weights = torch.load(data + name)
-        else:
-            model_url = get_model_url(data, name, hash)
-            model_weights = model_zoo.load_url(model_url)
-        self.load_state_dict(model_weights, strict=False)
+        # else:
+        #     model_url = get_model_url(data, name, hash)
+        #     model_weights = model_zoo.load_url(model_url)
+        # self.load_state_dict(model_weights, strict=False)
         # self.fc = fc
 
 
@@ -410,7 +410,7 @@ class DLANet(nn.Module):
     def __init__(
         self,
         dla='dla34',
-        pretrained=True,
+        pretrained=False,
         levels=[1, 1, 1, 2, 2, 1],
         in_channels=[16, 32, 64, 128, 256, 512],
         cfg=None,

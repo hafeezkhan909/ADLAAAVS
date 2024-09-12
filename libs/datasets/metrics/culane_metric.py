@@ -44,7 +44,7 @@ def culane_metric(
     anno,
     cat,
     width=30,
-    iou_thresholds=[0.5],
+    iou_thresholds=[0.1, 0.5, 0.75],
     img_shape=(590, 1640, 3),
 ):
     """

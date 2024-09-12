@@ -4,11 +4,12 @@ _base_ = [
     "../../_base_/default_runtime.py",
 ]
 
-# custom imports
+# custom 
 custom_imports = dict(
     imports=[
         "libs.models",
         "libs.datasets",
+        "libs.datasets.curvelanes_dataset",
         "libs.core.bbox",
         "libs.core.anchor",
         "libs.core.hook",

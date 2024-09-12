@@ -1,5 +1,6 @@
-dataset_type = "CulaneDataset"
-data_root = "dataset/culane"
+dataset_type = "CurvelanesDataset"
+data_root = "datasets/Curvelanes"
+data_root2 = "datasets/Curvelanes/valid"
 crop_bbox = [0, 270, 1640, 590]
 img_scale = (800, 320)
 img_norm_cfg = dict(mean=[0.0, 0.0, 0.0], std=[255.0, 255.0, 255.0], to_rgb=False)
@@ -110,23 +111,23 @@ data = dict(
     train=dict(
         type=dataset_type,
         data_root=data_root,
-        data_list=data_root + "/list/train_gt.txt",
-        diff_file=data_root + "/list/train_diffs.npz",
+        data_list=data_root + "/list/train_gt.txt", # Update required for curvelanes dataset
+        diff_file=data_root + "/list/train_diffs.npz", # Update required for curvelanes dataset
         diff_thr=15,
         pipeline=train_pipeline,
         test_mode=False,
     ),
     val=dict(
         type=dataset_type,
-        data_root=data_root,
-        data_list=data_root + "/list/test.txt",
+        data_root=data_root2, # Updated for curvelanes dataset
+        data_list=data_root + "/valid/valid.txt", # Updated for curvelanes dataset
         pipeline=val_pipeline,
         test_mode=True,
     ),
     test=dict(
         type=dataset_type,
-        data_root=data_root,
-        data_list=data_root + "/list/test.txt",
+        data_root=data_root2, # Updated for curvelanes dataset
+        data_list=data_root + "/valid/valid.txt", # Updated for curvelanes dataset
         pipeline=val_pipeline,
         test_mode=True,
     ),
